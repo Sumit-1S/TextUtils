@@ -1,0 +1,49 @@
+{%extends 'index.html'%}
+{%block content%}
+{% comment %} {% load static %} {% endcomment %}
+{% comment %} <img src="{% static '/img/dark-web-wallpapers-1.jpg' %}" alt="My image"> {% endcomment %}
+{% load static %}
+<div class="container-wrapper">
+  <div class="container">
+    <h3>Welcome to text utils</h3><br>
+    <form action='/analyze' method='get' >
+      <div class="form-floating">
+        <textarea name='text' style='margin: 0px; width: 721px; height: 93px;'></textarea>
+      </div>
+      <div class="inputs" style="padding-top: 20px;">
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" name="removepunc">
+          <label class="form-check-label" for="removepunc">Remove Punctuations</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" name="noextraspace">
+          <label class="form-check-label" for="noextraspace">No Extra Space</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" name="no_space">
+          <label class="form-check-label" for="nospace">No Space</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" name="upper">
+          <label class="form-check-label" for="upper">UPPER</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" name="lower">
+          <label class="form-check-label" for="lower">lower</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" name="snake">
+          <label class="form-check-label" for="snake">snake_format</label>
+        </div>
+        <div class="btn-wrapper">
+          <button type="submit" class="btn btn-primary" style="margin-top:30px;" id='button'>Primary</button>
+        </div>
+      </div>
+    </form>
+    {%if data %}
+      <h3>Analysed Text is:</h3>
+      <p>{{data}}</p>
+    {%endif%}
+  </div>
+</div>
+{%endblock%}
